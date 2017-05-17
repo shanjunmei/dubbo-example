@@ -16,7 +16,7 @@
        default-lazy-init="false" default-autowire="byName">
 
     <!-- 自动搜索@Controller标注的类 -->
-    <context:component-scan base-package="com.ffzx" use-default-filters="false">
+    <context:component-scan base-package="com.lanhun" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -47,60 +47,6 @@
     <mvc:interceptors>
         <!-- 更改语言环境时，一个'locale'的请求参数发送  -->
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/welcome.do"/>
-            <mvc:exclude-mapping path="/*.html"/>
-            <mvc:exclude-mapping path="/User/login"/>
-            <mvc:exclude-mapping path="/User/login.do"/>
-            <mvc:exclude-mapping path="/User/logout"/>
-            <mvc:exclude-mapping path="/500.do"/>
-            <mvc:exclude-mapping path="/api/*"/>
-            <mvc:exclude-mapping path="/static/**"/>
-            <mvc:exclude-mapping path="/asset/**"/>
-            <mvc:exclude-mapping path="/Checktoken.do"/>
-            <mvc:exclude-mapping path="/Oauth.do"/>
-            <mvc:exclude-mapping path="/FileRepo/file.do"/>
-          
-            <bean class="com.ffzx.common.utils.LoginInterceptor"/>
-
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/api/*"/>
-
-            <mvc:exclude-mapping path="/api/login.do"/>
-            <mvc:exclude-mapping path="/api/recieve.do"/>
-
-            <mvc:exclude-mapping path="/api/activities.do"/>
-            <mvc:exclude-mapping path="/api/game.do"/>
-            <mvc:exclude-mapping path="/api/games.do"/>
-            <mvc:exclude-mapping path="/api/orderCharge.do"/>
-
-
-           <!-- <mvc:exclude-mapping path="/Checktoken.do"/>
-            <mvc:exclude-mapping path="/Oauth.do"/>
-            <mvc:exclude-mapping path="/FileRepo/file.do"/>
-            <mvc:exclude-mapping path="/OpenApi/**"/>-->
-            <bean class="com.ffzx.common.utils.OauthInterceptor">
-            </bean>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/api/*"/>
-            <mvc:exclude-mapping path="/api/login.do"/>
-            <mvc:exclude-mapping path="/api/recieve.do"/>
-
-
-            <mvc:exclude-mapping path="/api/activities.do"/>
-            <mvc:exclude-mapping path="/api/game.do"/>
-            <mvc:exclude-mapping path="/api/games.do"/>
-            <mvc:exclude-mapping path="/api/orderCharge.do"/>
-
-          <!--  <mvc:exclude-mapping path="/Checktoken.do"/>
-            <mvc:exclude-mapping path="/Oauth.do"/>
-            <mvc:exclude-mapping path="/FileRepo/file.do"/>
-            <mvc:exclude-mapping path="/OpenApi/**"/>-->
-            <bean class="com.ffzx.common.utils.ApiInterceptor"/>
-        </mvc:interceptor>
     </mvc:interceptors>
 
 
@@ -119,54 +65,5 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-
-    <!-- 配置freeMarker视图解析器 -->
-    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"
-          p:configuration-ref="freeMarkerConfiguration"/>
-    <bean id="ftlviewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <!-- <property name="viewClass" value="com.ffzx.commerce.framework.controller.MyFreeMarkerView"/>-->
-        <!-- 如果配置了这个节点，则视图必须是ftl，redirect等前缀都失效了 -->
-        <!-- <property name="viewNames" value="*.ftl"/> -->
-        <property name="contentType" value="text/html;charset=UTF-8"/>
-        <property name="cache" value="true"/>
-        <property name="prefix" value=""/>
-        <property name="suffix" value=".ftl"/>
-        <!--  property name="requestContextAttribute" value="request" / -->
-        <property name="exposeSpringMacroHelpers" value="true"/>
-    </bean>
-
-    <!-- 国际化的消息资源文件（本系统中主要用于显示/错误消息定制） -->
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basenames">
-            <list>
-                <!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找  -->
-                <value>classpath:validationMessages/messages</value>
-                <value>classpath:org/hibernate/validator/ValidationMessages</value>
-            </list>
-        </property>
-        <property name="useCodeAsDefaultMessage" value="false"/>
-        <property name="defaultEncoding" value="UTF-8"/>
-        <property name="cacheSeconds" value="60"/>
-    </bean>
-    <!-- ======================Bean Validation end============================= -->
-
-    <!-- springmvc文件上传配置 -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="defaultEncoding" value="utf-8"></property>
-        <property name="maxUploadSize" value="104857600"></property>
-        <property name="maxInMemorySize" value="40960"></property>
-    </bean>
-
-    <!-- 定义异常解析器 -->
-    <bean id="exceptionHandler" class="com.ffzx.common.utils.GenericHandlerExceptionResolver" />
-
-    <!--<bean class="com.ffzx.commerce.framework.exception.MySimpleExceptionResolver">
-        <property name="defaultErrorView" value="/error/exception"></property>
-        <property name="exceptionMappings">
-            <props>
-                <prop key="java.lang.Exception">/error/exception</prop>
-            </props>
-        </property>
-    </bean>-->
 
 </beans>

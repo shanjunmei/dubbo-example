@@ -17,7 +17,7 @@
     <!-- 开启自动切面代理 -->
     <aop:aspectj-autoproxy/>
 
-    <context:component-scan base-package="com.ffzx">
+    <context:component-scan base-package="com.lanhun">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -61,48 +61,8 @@
     </bean>-->
 
 
-    <!-- Freemarker配置，参考： http://www.cnblogs.com/hoojo/archive/2011/04/19/2020551.html-->
-    <bean id="freeMarkerConfiguration"
-          class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
-        <!-- 视图资源位置 -->
-        <property name="templateLoaderPath" value="/WEB-INF/views/"/>
-        <property name="defaultEncoding" value="UTF-8"/>
-        <property name="freemarkerSettings">
-            <props>
-                <prop key="template_update_delay">0</prop><!-- 模板更新延时 -->
-                <prop key="locale">zh_CN</prop>
-                <prop key="default_encoding">UTF-8</prop>
-                <prop key="output_encoding">UTF-8</prop>
-                <prop key="template_exception_handler">rethrow</prop>
-                <prop key="number_format">#.##</prop>
-                <prop key="date_format">yyyy-MM-dd</prop>
-                <prop key="time_format">HH:mm:ss</prop>
-                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
-                <prop key="auto_import">common/spring.ftl as spring</prop>
-            </props>
-        </property>
-        <!-- 全局变量部分 -->
-        <property name="freemarkerVariables">
-            <map>
-                <entry key="BasePath" value="${web.basepath}"/>
-                <entry key="xml_escape" value-ref="fmXmlEscape"/>
-                <!--<entry key="permission" value-ref="permissionDirective"/>
-                <entry key="data_dict" value-ref="dataDictFunction"/>-->
-            </map>
-        </property>
-    </bean>
 
-    <!-- 定时任务线程池 -->
-    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-        <!-- 核心线程数 -->
-        <property name="corePoolSize" value="${task.core_pool_size}" />
-        <!-- 最大线程数 -->
-        <property name="maxPoolSize" value="${task.max_pool_size}" />
-        <!-- 队列最大长度 -->
-        <property name="queueCapacity" value="${task.queue_capacity}" />
-        <!-- 线程池维护线程所允许的空闲时间，默认为60s -->
-        <property name="keepAliveSeconds" value="${task.keep_alive_seconds}" />
-    </bean>
+
 
     <!-- #################################################################### -->
     <!-- # 导入资源配置文件 -->
@@ -110,8 +70,6 @@
     <!--<import resource="classpath:/applicationContext-redis.xml"/>-->
     <!-- <import resource="classpath:/applicationContext-ftp.xml"/>-->
     <import resource="classpath:/application-beans.xml"/>
-    <import resource="classpath:/applicationContext-database.xml"/>
-
-    <import resource="classpath:/applicationContext-aop.xml"/>
+   <!-- <import resource="classpath:/applicationContext-database.xml"/>-->
 
 </beans>
