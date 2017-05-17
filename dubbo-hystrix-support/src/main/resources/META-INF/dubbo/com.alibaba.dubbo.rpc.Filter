@@ -1,1 +1,1 @@
-hystrix=com.netease.hystrix.dubbo.rpc.filter.HystrixFilter
+hystrix=com.lanhun.hystrix.dubbo.rpc.filter.HystrixFilter
