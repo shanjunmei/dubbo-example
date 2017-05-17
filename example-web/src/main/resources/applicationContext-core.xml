@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+       default-lazy-init="false">
+
+    <description>Spring公共配置</description>
+
+    <!--开启注解 -->
+    <context:annotation-config/>
+
+    <!-- 开启自动切面代理 -->
+    <aop:aspectj-autoproxy/>
+
+    <context:component-scan base-package="com.lanhun">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- #################################################################### -->
+    <!-- # 装载属性占位符配置 -->
+    <!-- #################################################################### -->
+    <context:property-placeholder properties-ref="customProperties"/>
+    <bean id="customProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
+          p:ignoreResourceNotFound="true" p:localOverride="true">
+        <property name="locations">
+
+            <list>
+                <value>classpath*:/application-core.properties</value>
+
+                <value>file:/d:/conf/kart/application-core.properties</value>
+
+                <value>file:/etc/conf/kart/application-core.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- #################################################################### -->
+    <!-- # 导入资源配置文件 -->
+    <!-- #################################################################### -->
+    <import resource="classpath:/spring-dubbo-core.xml"/>
+    <import resource="classpath:/spring-dubbo-consumer.xml"/>
+
+
+</beans>

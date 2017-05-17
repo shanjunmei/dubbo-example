@@ -42,8 +42,6 @@
         </property>
     </bean>
 
-    <!-- <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
- -->
     <mvc:interceptors>
         <!-- 更改语言环境时，一个'locale'的请求参数发送  -->
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
@@ -64,11 +62,5 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
-
-
-
-
-
-
 
 </beans>
