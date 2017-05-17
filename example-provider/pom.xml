@@ -23,6 +23,12 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring</artifactId>
+                    <groupId>org.springframework</groupId>
+                </exclusion>
+            </exclusions>
             <version>2.5.3</version>
         </dependency>
     </dependencies>
@@ -62,7 +68,7 @@
                         <configuration>
                             <type>jar</type>
                             <includeTypes>jar</includeTypes>
-                           <!-- <useUniqueVersions>false</useUniqueVersions>-->
+                            <!-- <useUniqueVersions>false</useUniqueVersions>-->
                             <outputDirectory>
                                 <!-- 这个jar包所依赖的jar包的存放路径 -->
                                 ${project.build.directory}/lib
