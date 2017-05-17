@@ -41,35 +41,12 @@
     </bean>
 
 
-    <!--<bean
-            class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <property name="exceptionMappings">
-            <props>
-                <prop key="java.lang.Throwable">error/500</prop>
-            </props>
-        </property>
-        <property name="warnLogCategory" value="WARN"></property>
-        <property name="defaultErrorView" value="500"></property>
-        <property name="defaultStatusCode" value="500"></property>
-        <property name="statusCodes">
-            <props>
-                <prop key="404">404</prop>
-                <prop key="500">500</prop>
-            </props>
-        </property>
-
-    </bean>-->
-
-
-
-
-
     <!-- #################################################################### -->
     <!-- # 导入资源配置文件 -->
     <!-- #################################################################### -->
     <!--<import resource="classpath:/applicationContext-redis.xml"/>-->
     <!-- <import resource="classpath:/applicationContext-ftp.xml"/>-->
     <import resource="classpath:/application-beans.xml"/>
-   <!-- <import resource="classpath:/applicationContext-database.xml"/>-->
+    <!-- <import resource="classpath:/applicationContext-database.xml"/>-->
 
 </beans>

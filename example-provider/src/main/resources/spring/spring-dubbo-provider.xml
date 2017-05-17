@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
 	 http://code.alibabatech.com/schema/dubbo	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
+ <!--   <dubbo:annotation package="com.lanhun." />-->
     <dubbo:service interface="com.lanhun.example.api.service.ExampleApiService" version="1.0" ref="exampleApiService" registry="zookeeperService"/>
     <bean id="exampleApiService" class="com.lanhun.example.api.service.impl.ExampleApiServiceImpl"/>
 </beans>

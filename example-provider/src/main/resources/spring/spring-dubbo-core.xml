@@ -5,6 +5,7 @@
 	 http://code.alibabatech.com/schema/dubbo	http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
        default-lazy-init="true">
 
+
     <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
     <dubbo:application name="example-service"/>
 
@@ -19,5 +20,7 @@
                     retries="${dubbo.provider.retries}" threads="${dubbo.threads}"/>
 
     <dubbo:consumer check="${dubbo.consumer.check}" timeout="${dubbo.consumer.timeout}"/>
+
     <import resource="classpath:/applicationContext-core.xml"/>
+
 </beans>
