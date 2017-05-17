@@ -22,7 +22,7 @@
 
         <dependency>
             <groupId>com.lanhun.example</groupId>
-            <artifactId>example-core</artifactId>
+            <artifactId>example-provider</artifactId>
             <version>0.0.1-SNAPSHOT</version>
                    </dependency>
         <dependency>
