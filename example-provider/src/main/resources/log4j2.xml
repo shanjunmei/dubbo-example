@@ -27,7 +27,7 @@
         <logger name="org.apache.zookeeper" level="info"/>
 
         <!--建立一个默认的root的logger-->
-        <root level="trace">
+        <root level="info">
             <appender-ref ref="RollingFile"/>
             <appender-ref ref="Console"/>
         </root>
