@@ -7,6 +7,6 @@
    <!--<dubbo:reference interface="com.lanhun.example.api.service.ExampleApiService" check="false" registry="zookeeperClient"/>-->
 
    <dubbo:reference id="codeRuleApiService" interface="com.lanhun.example.api.service.ExampleApiService"
-                    timeout="300000" version="1.0"  registry="zookeeperClient" protocol="dubbo" check="false"/>
+                    timeout="300000" version="1.0"  registry="zookeeperClient" protocol="dubbo" />
 
 </beans>

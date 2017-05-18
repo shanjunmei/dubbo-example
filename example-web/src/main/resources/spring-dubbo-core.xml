@@ -12,7 +12,7 @@
     <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address.client}" id="zookeeperClient" default="false" register="false"/>
     
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" id="zookeeperService"/>
+   <!-- <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" id="zookeeperService"/>-->
     
 	<!-- 用dubbo协议在20880端口暴露服务 -->  
 	<dubbo:protocol name="dubbo" port="${dubbo.registry.port}" threads="${dubbo.threads}"/>
