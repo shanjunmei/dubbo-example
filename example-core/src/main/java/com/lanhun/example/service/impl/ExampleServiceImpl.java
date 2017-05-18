@@ -16,7 +16,7 @@ public class ExampleServiceImpl  implements ExampleService{
         ExampleModel model=new ExampleModel();
         model.setName(name);
         model.setCode(UUID.randomUUID().toString());
-        throw new RuntimeException(name);
-       // return model;
+        //throw new RuntimeException(name);
+       return model;
     }
 }

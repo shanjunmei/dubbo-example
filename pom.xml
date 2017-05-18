@@ -15,6 +15,7 @@
 		<module>example-api</module>
 		<module>example-core</module>
 		<module>example-provider</module>
+		<module>example-hystrix</module>
 		<module>example-web</module>		
     </modules>
 

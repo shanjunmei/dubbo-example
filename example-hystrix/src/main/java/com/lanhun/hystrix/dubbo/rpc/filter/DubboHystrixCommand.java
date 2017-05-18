@@ -5,12 +5,12 @@ import com.alibaba.dubbo.rpc.Invocation;
 import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.Result;
 import com.netflix.hystrix.*;
-import org.apache.log4j.Logger;
+
 
 public class DubboHystrixCommand extends HystrixCommand<Result> {
 
     private static final int DEFAULT_THREADPOOL_CORE_SIZE = 30;
-    private static Logger logger = Logger.getLogger(DubboHystrixCommand.class);
+
     private Invoker<?> invoker;
     private Invocation invocation;
 
@@ -25,7 +25,7 @@ public class DubboHystrixCommand extends HystrixCommand<Result> {
                         .withExecutionTimeoutEnabled(true))//-- 使用dubbo的超时，禁用这里的超时,启动，实现降级功能
 
 
-               // .withExecutionIsolationThreadTimeoutInMilliseconds(500)//设置依赖超时时间
+                // .withExecutionIsolationThreadTimeoutInMilliseconds(500)//设置依赖超时时间
                 .andThreadPoolPropertiesDefaults(HystrixThreadPoolProperties.Setter().withCoreSize(getThreadPoolCoreSize(invoker.getUrl()))));//线程池为30
 
 
@@ -42,9 +42,7 @@ public class DubboHystrixCommand extends HystrixCommand<Result> {
     private static int getThreadPoolCoreSize(URL url) {
         if (url != null) {
             int size = url.getParameter("ThreadPoolCoreSize", DEFAULT_THREADPOOL_CORE_SIZE);
-            if (logger.isDebugEnabled()) {
-                logger.debug("ThreadPoolCoreSize:" + size);
-            }
+
             return size;
         }
 
@@ -57,8 +55,5 @@ public class DubboHystrixCommand extends HystrixCommand<Result> {
         return invoker.invoke(invocation);
     }
 
-    @Override
-    protected Result getFallback() {
-        return null;//super.getFallback();
-    }
+
 }

@@ -26,13 +26,13 @@
 		<dependency>
 			<groupId>com.netflix.hystrix</groupId>
 			<artifactId>hystrix-core</artifactId>
-			<version>1.5.1</version>
+			<version>1.5.11</version>
 		</dependency>
-		<dependency>
+	<!--	<dependency>
 			<groupId>com.netflix.hystrix</groupId>
 			<artifactId>hystrix-metrics-event-stream</artifactId>
 			<version>1.5.2</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>dubbo</artifactId>
@@ -45,34 +45,10 @@
 			</exclusions>
 		</dependency>
 
-		<dependency>
-			<groupId>com.github.sgroschupf</groupId>
-			<artifactId>zkclient</artifactId>
-			<version>0.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>4.2.5.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.20</version>
-		</dependency>
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-
 	</dependencies>
 	<build>
-		<finalName>dubbo-hystrix-support</finalName>
-		<plugins>
+		<!--<finalName>dubbo-hystrix-support</finalName>-->
+		<!--<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -147,7 +123,7 @@
 				</configuration>
 			</plugin>
 			
-		</plugins>
+		</plugins>-->
 		
 	</build>
 	
